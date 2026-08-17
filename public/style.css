@@ -1,0 +1,399 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #f4f7fb;
+    color: #222;
+    line-height: 1.6;
+}
+
+.container {
+    width: 90%;
+    max-width: 1100px;
+    margin: auto;
+}
+
+
+/* ================= NAVBAR ================= */
+
+header {
+    background: #14213d;
+    color: white;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.nav {
+    min-height: 70px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav h1 {
+    font-size: 24px;
+}
+
+nav {
+    display: flex;
+    gap: 25px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+nav a:hover {
+    color: #ffd166;
+}
+
+
+/* ================= HERO ================= */
+
+.hero {
+    background: linear-gradient(135deg, #14213d, #264653);
+    color: white;
+    padding: 90px 0;
+    text-align: center;
+}
+
+.hero h2 {
+    font-size: 42px;
+    margin-bottom: 15px;
+}
+
+.hero p {
+    font-size: 18px;
+    margin-bottom: 30px;
+}
+
+.btn {
+    display: inline-block;
+    background: #fca311;
+    color: #111;
+    padding: 13px 25px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+
+/* ================= STATISTICS ================= */
+
+.stats {
+    width: 90%;
+    max-width: 1100px;
+    margin: -35px auto 40px;
+
+    display: flex;
+    gap: 20px;
+}
+
+.stat-card {
+    flex: 1;
+    background: white;
+    padding: 25px;
+    text-align: center;
+    border-radius: 10px;
+
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.stat-card h3 {
+    font-size: 30px;
+    color: #14213d;
+}
+
+
+/* ================= SECTIONS ================= */
+
+.section {
+    padding: 60px 0;
+}
+
+.section h2 {
+    text-align: center;
+    font-size: 30px;
+    margin-bottom: 10px;
+}
+
+.section-text {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #666;
+}
+
+
+/* ================= FORM ================= */
+
+form {
+    background: white;
+    padding: 30px;
+    border-radius: 12px;
+
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group.full {
+    grid-column: 1 / -1;
+}
+
+label {
+    margin-bottom: 7px;
+    font-weight: bold;
+}
+
+input,
+select,
+textarea {
+    width: 100%;
+    padding: 12px;
+
+    border: 1px solid #ccc;
+    border-radius: 6px;
+
+    font-size: 15px;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+    outline: none;
+    border-color: #14213d;
+}
+
+textarea {
+    min-height: 100px;
+    resize: vertical;
+}
+
+.submit-btn {
+    width: 100%;
+    margin-top: 25px;
+
+    padding: 14px;
+
+    background: #14213d;
+    color: white;
+
+    border: none;
+    border-radius: 6px;
+
+    font-size: 16px;
+    font-weight: bold;
+
+    cursor: pointer;
+}
+
+.submit-btn:hover {
+    background: #264653;
+}
+
+
+/* ================= SEARCH ================= */
+
+.search-area {
+    display: flex;
+    gap: 12px;
+    margin: 30px 0;
+}
+
+.search-area input {
+    flex: 1;
+}
+
+.search-area select {
+    width: 220px;
+}
+
+.refresh-btn {
+    padding: 10px 20px;
+    background: #14213d;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+
+/* ================= REPORT CARDS ================= */
+
+.reports-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.report-card {
+    background: white;
+    padding: 22px;
+    border-radius: 10px;
+
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.08);
+}
+
+.report-card h3 {
+    color: #14213d;
+    margin-bottom: 10px;
+}
+
+.report-card p {
+    margin: 6px 0;
+}
+
+.status {
+    display: inline-block;
+    background: #ffe8a1;
+    padding: 5px 10px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+.card-buttons {
+    display: flex;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.edit-btn,
+.delete-btn {
+    padding: 8px 14px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.edit-btn {
+    background: #457b9d;
+    color: white;
+}
+
+.delete-btn {
+    background: #e63946;
+    color: white;
+}
+
+
+/* ================= POPUP ================= */
+
+.popup {
+    display: none;
+
+    position: fixed;
+    inset: 0;
+
+    background: rgba(0, 0, 0, 0.6);
+
+    justify-content: center;
+    align-items: center;
+
+    z-index: 1000;
+}
+
+.popup-content {
+    background: white;
+    width: 90%;
+    max-width: 400px;
+
+    padding: 35px;
+
+    text-align: center;
+
+    border-radius: 12px;
+}
+
+.popup-content h2 {
+    margin-bottom: 10px;
+}
+
+.popup-content button {
+    margin-top: 20px;
+    padding: 10px 30px;
+
+    border: none;
+    border-radius: 5px;
+
+    background: #14213d;
+    color: white;
+
+    cursor: pointer;
+}
+
+
+/* ================= FOOTER ================= */
+
+footer {
+    background: #14213d;
+    color: white;
+    text-align: center;
+    padding: 25px;
+}
+
+
+/* ================= RESPONSIVE ================= */
+
+@media (max-width: 768px) {
+
+    .nav {
+        flex-direction: column;
+        padding: 15px 0;
+        gap: 15px;
+    }
+
+    nav {
+        gap: 12px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .hero h2 {
+        font-size: 30px;
+    }
+
+    .stats {
+        flex-direction: column;
+    }
+
+    .form-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .form-group.full {
+        grid-column: auto;
+    }
+
+    .search-area {
+        flex-direction: column;
+    }
+
+    .search-area select {
+        width: 100%;
+    }
+
+    .reports-container {
+        grid-template-columns: 1fr;
+    }
+}

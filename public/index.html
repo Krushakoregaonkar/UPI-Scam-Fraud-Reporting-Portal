@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>UPI Fraud Reporting Portal</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <header>
+        <div class="container nav">
+            <h1>🛡️ UPI Shield</h1>
+
+            <nav>
+                <a href="#home">Home</a>
+                <a href="#report">Report Fraud</a>
+                <a href="#reports">Reports</a>
+            </nav>
+        </div>
+    </header>
+
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+
+        <div class="container">
+
+            <h2>UPI Scam & Fraud Reporting Portal</h2>
+
+            <p>
+                Report suspicious UPI transactions and fraud incidents
+                quickly and securely.
+            </p>
+
+            <a href="#report" class="btn">
+                Report Fraud
+            </a>
+
+        </div>
+
+    </section>
+
+
+    <!-- Statistics -->
+    <section class="stats">
+
+        <div class="stat-card">
+            <h3 id="totalReports">0</h3>
+            <p>Total Reports</p>
+        </div>
+
+        <div class="stat-card">
+            <h3 id="totalAmount">₹0</h3>
+            <p>Total Amount Reported</p>
+        </div>
+
+        <div class="stat-card">
+            <h3 id="reviewReports">0</h3>
+            <p>Under Review</p>
+        </div>
+
+    </section>
+
+
+    <!-- Report Form -->
+    <section id="report" class="section">
+
+        <div class="container">
+
+            <h2>Submit a Fraud Report</h2>
+
+            <p class="section-text">
+                Provide accurate information about the incident.
+            </p>
+
+            <form id="reportForm">
+
+                <div class="form-grid">
+
+                    <div class="form-group">
+                        <label>Report Name *</label>
+
+                        <input
+                            type="text"
+                            id="reportName"
+                            placeholder="Enter your name"
+                            required
+                        >
+                    </div>
+
+
+                    <div class="form-group">
+                        <label>Contact Information *</label>
+
+                        <input
+                            type="text"
+                            id="contact"
+                            placeholder="Email or mobile number"
+                            required
+                        >
+                    </div>
+
+
+                    <div class="form-group">
+                        <label>Incident Date *</label>
+
+                        <input
+                            type="date"
+                            id="incidentDate"
+                            required
+                        >
+                    </div>
+
+
+                    <div class="form-group">
+                        <label>Transaction ID *</label>
+
+                        <input
+                            type="text"
+                            id="transactionId"
+                            placeholder="Example: TXN123456"
+                            required
+                        >
+                    </div>
+
+
+                    <div class="form-group">
+                        <label>Amount Involved *</label>
+
+                        <input
+                            type="number"
+                            id="amount"
+                            placeholder="Enter amount"
+                            min="1"
+                            required
+                        >
+                    </div>
+
+
+                    <div class="form-group">
+                        <label>Type of Incident *</label>
+
+                        <select id="incidentType" required>
+
+                            <option value="">
+                                Select incident type
+                            </option>
+
+                            <option value="Fake UPI Request">
+                                Fake UPI Request
+                            </option>
+
+                            <option value="Phishing">
+                                Phishing
+                            </option>
+
+                            <option value="Fake Customer Care">
+                                Fake Customer Care
+                            </option>
+
+                            <option value="Unauthorized Transaction">
+                                Unauthorized Transaction
+                            </option>
+
+                            <option value="QR Code Scam">
+                                QR Code Scam
+                            </option>
+
+                            <option value="Other">
+                                Other
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <div class="form-group full">
+
+                        <label>Description *</label>
+
+                        <textarea
+                            id="description"
+                            placeholder="Describe what happened..."
+                            required
+                        ></textarea>
+
+                    </div>
+
+
+                    <div class="form-group full">
+
+                        <label>Additional Information</label>
+
+                        <textarea
+                            id="additionalInfo"
+                            placeholder="Add any other useful information..."
+                        ></textarea>
+
+                    </div>
+
+                </div>
+
+
+                <button type="submit" class="submit-btn">
+                    Submit Report
+                </button>
+
+            </form>
+
+        </div>
+
+    </section>
+
+
+    <!-- Reports Section -->
+    <section id="reports" class="section reports-section">
+
+        <div class="container">
+
+            <h2>Submitted Reports</h2>
+
+            <div class="search-area">
+
+                <input
+                    type="text"
+                    id="searchInput"
+                    placeholder="Search reports..."
+                >
+
+                <select id="filterType">
+
+                    <option value="All">
+                        All Incidents
+                    </option>
+
+                    <option value="Fake UPI Request">
+                        Fake UPI Request
+                    </option>
+
+                    <option value="Phishing">
+                        Phishing
+                    </option>
+
+                    <option value="Fake Customer Care">
+                        Fake Customer Care
+                    </option>
+
+                    <option value="Unauthorized Transaction">
+                        Unauthorized Transaction
+                    </option>
+
+                    <option value="QR Code Scam">
+                        QR Code Scam
+                    </option>
+
+                </select>
+
+                <button onclick="loadReports()" class="refresh-btn">
+                    Refresh
+                </button>
+
+            </div>
+
+
+            <div id="reportsContainer" class="reports-container">
+
+                <!-- Reports will be inserted using JavaScript -->
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- Popup -->
+    <div id="popup" class="popup">
+
+        <div class="popup-content">
+
+            <h2 id="popupTitle">Success</h2>
+
+            <p id="popupMessage"></p>
+
+            <button onclick="closePopup()">
+                OK
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <footer>
+
+        <p>
+            © 2026 UPI Shield | Fraud Reporting Portal
+        </p>
+
+    </footer>
+
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
